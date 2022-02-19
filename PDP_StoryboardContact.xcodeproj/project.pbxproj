@@ -3,11 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E202E18A75445DFE7835831F /* Pods_PDP_StoryboardContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 150C672B2BB958D2A7666307 /* Pods_PDP_StoryboardContact.framework */; };
+		F22CE18B27C174AD000B903F /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE18A27C174AD000B903F /* HttpManager.swift */; };
+		F22CE19027C175B7000B903F /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE18F27C175B7000B903F /* HomePresenter.swift */; };
+		F22CE19227C175D0000B903F /* HomeRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19127C175D0000B903F /* HomeRouting.swift */; };
+		F22CE19427C175F2000B903F /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19327C175F2000B903F /* HomeInteractor.swift */; };
+		F22CE19627C197CD000B903F /* CreatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19527C197CD000B903F /* CreatePresenter.swift */; };
+		F22CE19827C197E8000B903F /* CreateRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19727C197E8000B903F /* CreateRouting.swift */; };
+		F22CE19A27C1980C000B903F /* CreateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19927C1980C000B903F /* CreateInteractor.swift */; };
+		F22CE19C27C19C9C000B903F /* EditPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19B27C19C9C000B903F /* EditPresenter.swift */; };
+		F22CE19E27C19CAE000B903F /* EditRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19D27C19CAE000B903F /* EditRouting.swift */; };
+		F22CE1A027C19CBE000B903F /* EditInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CE19F27C19CBE000B903F /* EditInteractor.swift */; };
 		F2C5E60C27C01D3500E9F92E /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C5E60A27C01D3500E9F92E /* CreateViewController.swift */; };
 		F2C5E60D27C01D3500E9F92E /* CreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2C5E60B27C01D3500E9F92E /* CreateViewController.xib */; };
 		F2C5E61027C01D4800E9F92E /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C5E60E27C01D4800E9F92E /* EditViewController.swift */; };
@@ -30,6 +40,16 @@
 		150C672B2BB958D2A7666307 /* Pods_PDP_StoryboardContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PDP_StoryboardContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CF69FEFAC101D11C59B182A /* Pods-PDP_StoryboardContact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDP_StoryboardContact.debug.xcconfig"; path = "Target Support Files/Pods-PDP_StoryboardContact/Pods-PDP_StoryboardContact.debug.xcconfig"; sourceTree = "<group>"; };
 		E48B1FE66F54CCE218C09872 /* Pods-PDP_StoryboardContact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PDP_StoryboardContact.release.xcconfig"; path = "Target Support Files/Pods-PDP_StoryboardContact/Pods-PDP_StoryboardContact.release.xcconfig"; sourceTree = "<group>"; };
+		F22CE18A27C174AD000B903F /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		F22CE18F27C175B7000B903F /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		F22CE19127C175D0000B903F /* HomeRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouting.swift; sourceTree = "<group>"; };
+		F22CE19327C175F2000B903F /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		F22CE19527C197CD000B903F /* CreatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePresenter.swift; sourceTree = "<group>"; };
+		F22CE19727C197E8000B903F /* CreateRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRouting.swift; sourceTree = "<group>"; };
+		F22CE19927C1980C000B903F /* CreateInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateInteractor.swift; sourceTree = "<group>"; };
+		F22CE19B27C19C9C000B903F /* EditPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPresenter.swift; sourceTree = "<group>"; };
+		F22CE19D27C19CAE000B903F /* EditRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRouting.swift; sourceTree = "<group>"; };
+		F22CE19F27C19CBE000B903F /* EditInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInteractor.swift; sourceTree = "<group>"; };
 		F2C5E60A27C01D3500E9F92E /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		F2C5E60B27C01D3500E9F92E /* CreateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateViewController.xib; sourceTree = "<group>"; };
 		F2C5E60E27C01D4800E9F92E /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
@@ -68,7 +88,6 @@
 				4CF69FEFAC101D11C59B182A /* Pods-PDP_StoryboardContact.debug.xcconfig */,
 				E48B1FE66F54CCE218C09872 /* Pods-PDP_StoryboardContact.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -80,10 +99,47 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F22CE18C27C17551000B903F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F2F2880127BED5AA001A2401 /* HomeViewController.xib */,
+				F2F2880027BED5AA001A2401 /* HomeViewController.swift */,
+				F22CE18F27C175B7000B903F /* HomePresenter.swift */,
+				F22CE19127C175D0000B903F /* HomeRouting.swift */,
+				F22CE19327C175F2000B903F /* HomeInteractor.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F22CE18D27C17565000B903F /* Create */ = {
+			isa = PBXGroup;
+			children = (
+				F2C5E60B27C01D3500E9F92E /* CreateViewController.xib */,
+				F2C5E60A27C01D3500E9F92E /* CreateViewController.swift */,
+				F22CE19527C197CD000B903F /* CreatePresenter.swift */,
+				F22CE19727C197E8000B903F /* CreateRouting.swift */,
+				F22CE19927C1980C000B903F /* CreateInteractor.swift */,
+			);
+			path = Create;
+			sourceTree = "<group>";
+		};
+		F22CE18E27C17570000B903F /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				F2C5E60F27C01D4800E9F92E /* EditViewController.xib */,
+				F2C5E60E27C01D4800E9F92E /* EditViewController.swift */,
+				F22CE19B27C19C9C000B903F /* EditPresenter.swift */,
+				F22CE19D27C19CAE000B903F /* EditRouting.swift */,
+				F22CE19F27C19CBE000B903F /* EditInteractor.swift */,
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
 		F2C5E61A27C03EF200E9F92E /* networks */ = {
 			isa = PBXGroup;
 			children = (
 				F2C5E61B27C03F4800E9F92E /* NetworkService.swift */,
+				F22CE18A27C174AD000B903F /* HttpManager.swift */,
 			);
 			path = networks;
 			sourceTree = "<group>";
@@ -142,12 +198,9 @@
 			isa = PBXGroup;
 			children = (
 				F2C5E61227C01ECC00E9F92E /* BaseViewController.swift */,
-				F2F2880027BED5AA001A2401 /* HomeViewController.swift */,
-				F2F2880127BED5AA001A2401 /* HomeViewController.xib */,
-				F2C5E60A27C01D3500E9F92E /* CreateViewController.swift */,
-				F2C5E60B27C01D3500E9F92E /* CreateViewController.xib */,
-				F2C5E60E27C01D4800E9F92E /* EditViewController.swift */,
-				F2C5E60F27C01D4800E9F92E /* EditViewController.xib */,
+				F22CE18C27C17551000B903F /* Home */,
+				F22CE18D27C17565000B903F /* Create */,
+				F22CE18E27C17570000B903F /* Edit */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -280,15 +333,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22CE19A27C1980C000B903F /* CreateInteractor.swift in Sources */,
 				F2C5E61027C01D4800E9F92E /* EditViewController.swift in Sources */,
+				F22CE18B27C174AD000B903F /* HttpManager.swift in Sources */,
+				F22CE19827C197E8000B903F /* CreateRouting.swift in Sources */,
+				F22CE19E27C19CAE000B903F /* EditRouting.swift in Sources */,
 				F2C5E60C27C01D3500E9F92E /* CreateViewController.swift in Sources */,
 				F2E5BA3E27BED312007D63E4 /* AppDelegate.swift in Sources */,
 				F2F2880227BED5AA001A2401 /* HomeViewController.swift in Sources */,
+				F22CE19227C175D0000B903F /* HomeRouting.swift in Sources */,
 				F2C5E61C27C03F4800E9F92E /* NetworkService.swift in Sources */,
+				F22CE19427C175F2000B903F /* HomeInteractor.swift in Sources */,
 				F2C5E61827C021E300E9F92E /* ContactTableViewCell.swift in Sources */,
+				F22CE1A027C19CBE000B903F /* EditInteractor.swift in Sources */,
 				F2E5BA4027BED312007D63E4 /* SceneDelegate.swift in Sources */,
 				F2C5E61527C0207A00E9F92E /* Contact.swift in Sources */,
 				F2C5E61327C01ECC00E9F92E /* BaseViewController.swift in Sources */,
+				F22CE19627C197CD000B903F /* CreatePresenter.swift in Sources */,
+				F22CE19C27C19C9C000B903F /* EditPresenter.swift in Sources */,
+				F22CE19027C175B7000B903F /* HomePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

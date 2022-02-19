@@ -44,12 +44,12 @@ class AFHttp {
         return URL(string: DEP_SER + url)!
     }
     
-    // MARK : - AFHttp Apis
-    static let API_CONTACT_LIST = "api/contacts/"
-    static let API_CONTACT_SINGLE = "api/contacts/" //id
-    static let API_CONTACT_CREATE = "api/contacts/"
-    static let API_CONTACT_UPDATE = "api/contacts/" //id
-    static let API_CONTACT_DELETE = "api/contacts/" //id
+    // MARK: - AFHttp Apis
+    static let API_CONTACT_LIST = "api/contacts"           //GET
+    static let API_CONTACT_SINGLE = "api/contacts/" //id   //GET
+    static let API_CONTACT_CREATE = "api/contacts"         //POST
+    static let API_CONTACT_UPDATE = "api/contacts/" //id   //PUT
+    static let API_CONTACT_DELETE = "api/contacts/" //id   //DELETE
     
     
     // MARK : - AFHttp Params
@@ -59,19 +59,26 @@ class AFHttp {
         return parameters
     }
     
-    class func paramsPostCreate(contact: Contact) -> Parameters {
+    class func paramsContactWith(id: Int) -> Parameters {
         let parameters: Parameters = [
-            "title": contact.title!,
-            "body": contact.body!,
+            "id" : id
         ]
         return parameters
     }
     
-    class func paramsPostUpdate(contact: Contact) -> Parameters {
+    class func paramsContactCreate(contact: Contact) -> Parameters {
+        let parameters: Parameters = [
+            "name" : contact.name!,
+            "number" : contact.number!
+        ]
+        return parameters
+    }
+    
+    class func paramsContactUpdate(contact: Contact) -> Parameters {
         let parameters: Parameters = [
             "id": contact.id!,
-            "title": contact.title!,
-            "body": contact.body!,
+            "name" : contact.name!,
+            "number" : contact.number!
         ]
         return parameters
     }

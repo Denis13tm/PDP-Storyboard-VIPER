@@ -6,11 +6,25 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
+protocol HomeRequestProtocol {
+    func apiContactList()
+    func apiContactDelete(contact: Contact)
+    
+    func navigateCreateScreen()
+    func navigateEditScreen(id: String)
+}
+
+protocol HomeResponseProtocol {
+    func onContactList(contact: [Contact])
+    func onContactDelete(isDeleted: Bool)
+}
+
+class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource, HomeResponseProtocol {
 
     @IBOutlet weak var tableView: UITableView!
     var contactList: Array<Contact> = Array()
     
+    var presenter: HomeRequestProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,34 +49,53 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         getContactList()
     }
     
+    func configureViper(){
+            let manager = HttpManager()
+            let presenter = HomePresenter()
+            let interactor = HomeInteractor()
+            let routing = HomeRouting()
+            
+            presenter.controller = self
+            
+            self.presenter = presenter
+            presenter.interactor = interactor
+            presenter.routing = routing
+            routing.viewController = self
+            interactor.manager = manager
+            interactor.response = self
+        }
+    
+    func onContactList(contact: [Contact]) {
+            self.hideProgressView()
+            self.refreshTableView(contacts: contact)
+        }
+        
+        func onContactDelete(isDeleted: Bool) {
+            self.hideProgressView()
+            presenter.apiContactList()
+        }
+    
+    func callCreateViewController(){
+            let vc = CreateViewController(nibName: "CreateViewController", bundle: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+    func callEditViewController(id: String){
+        let vc = EditViewController(nibName: "EditViewController", bundle: nil)
+        vc.contactID = id
+        let navigationController = UINavigationController(rootViewController: vc)
+        print(vc.contactID)
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
     
     //Call APIs...
     public func getContactList() {
         indicateProgressView()
-        AFHttp.get(url: AFHttp.API_CONTACT_LIST, params: AFHttp.paramsEmpty(), handler: { response in
-            self.hideProgressView()
-            switch response.result {
-                case .success:
-                    let contacts = try! JSONDecoder().decode([Contact].self, from: response.data!)
-                    self.refreshTableView(contacts: contacts)
-            case let .failure(error):
-                print(error.localizedDescription)
-            }
-        })
     }
     
     private func deleteContact(contact: Contact) {
         indicateProgressView()
-        AFHttp.del(url: AFHttp.API_CONTACT_DELETE + contact.id!, params: AFHttp.paramsEmpty(), handler: {
-            response in
-                self.hideProgressView()
-                switch response.result {
-                    case .success:
-                        self.getContactList()
-                case let .failure(error):
-                    print(error.localizedDescription)
-                }
-        })
     }
     
     private func refreshTableView(contacts: [Contact]) {
@@ -79,25 +112,13 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: add, style: .plain, target: self, action: #selector(rightTapped))
     }
     
-    private func callCreateViewController() {
-        let vc = CreateViewController(nibName: "CreateViewController", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    private func callEditViewController(contact: Contact) {
-        let vc = EditViewController(nibName: "EditViewController", bundle: nil)
-        vc.id = contact.id
-        vc.name = contact.title
-        vc.phoneNumber = contact.body
-        
-        vc.editCompletion = { res in
-            if res {
-                self.getContactList()
-                self.tableView.reloadData()
+    func onContactCreate(isCreated: Bool) {
+            if isCreated {
+                self.navigationController?.popViewController(animated: true)
+            }else{
+                
             }
         }
-        
-        self.present(vc, animated: true, completion: nil)
-    }
     
     //MARK: - Actions...
     
@@ -105,7 +126,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         getContactList()
     }
     @objc func rightTapped() {
-        callCreateViewController()
+        
     }
    
     //MARK: - Table View Methods...
@@ -118,8 +139,8 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let singleContact = contactList[indexPath.row]
         let cell = Bundle.main.loadNibNamed("ContactTableViewCell", owner: self, options: nil)? .first as! ContactTableViewCell
         
-        cell.titleLabel.text = singleContact.title
-        cell.bodyLabel.text = singleContact.body
+        cell.titleLabel.text = singleContact.name
+        cell.bodyLabel.text = singleContact.number
         
         return cell
     }
@@ -147,7 +168,6 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     private func makeCompleteContextualAction(forRowAt: IndexPath, contact: Contact) -> UIContextualAction {
         return UIContextualAction(style: .normal, title: "Edit") { (action, swipeButtonView, completion) in
             completion(true)
-            self.callEditViewController(contact: contact)
             print("COMPLETE :)")
         }
     }

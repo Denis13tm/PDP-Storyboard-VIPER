@@ -5,13 +5,16 @@
 
 import Foundation
 
-struct Contact: Codable {
+struct Contact: Decodable{
     var id: String? = ""
-    var title: String? = ""
-    var body: String? = ""
+    var name: String? = ""
+    var number: String? = ""
     
-    init(title: String, body: String) {
-        self.title = title
-        self.body = body
+    init(){
+    }
+    
+    init(name: String, number: String){
+        self.name = name
+        self.number = number
     }
 }
